@@ -9,9 +9,12 @@ function compile(req, res, cssOptions) {
         filenames = [];
 
     function error(err) {
-        console.log('Failed:', err);
+        output = err.name.toString() + '\n' + err.message.toString();
+
+        console.log('Failed:', output);
         res.writeHead(400, {'content-type': 'text/plain'});
-        res.end(err);
+        res.write(output);
+        res.end()
     }
 
     new formidable.IncomingForm().on('field', function(field, value) {
