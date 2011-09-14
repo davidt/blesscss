@@ -24,7 +24,7 @@ function compile(req, res, cssOptions) {
         error(err);
     }).on('end', function() {
         if (filenames.length == 0) {
-            error('No files present in POST data\n');
+            error(new Error('No files present in POST data\n'));
             return;
         }
         console.log('Servicing request for ' + filenames.length + ' files');
@@ -42,7 +42,7 @@ function compile(req, res, cssOptions) {
         // multipart data instead of trying to hit the filesystem.
         less.Parser.importer = function(path, paths, callback) {
             if (files[path] == undefined) {
-                error('Attempted to import "' + path + '" but no such file included in form data.\n')
+                error(new Error('Attempted to import "' + path + '" but no such file included in form data.\n'));
                 return;
             }
 
