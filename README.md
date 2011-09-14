@@ -16,4 +16,10 @@ To run locally, simply use npm to install the `express`, `formidable` and
 
 I've also staged this application on Cloud Foundry, so you can just use it:
 
-    curl -F "main.less=<main.less" -F "included.less=<included.less" http://blesscss.cloudfoundry.com/min
+    curl -F "main.less=<main.less" http://blesscss.cloudfoundry.com/min -o compiled-min.css
+
+Curl is a little finicky about how it reports errors. You can either get the
+contents of the page (a-la the commands listed above) and see if it has your
+CSS, or you can add `--fail` to the command-line, and it will give you a
+non-zero return code (and no output). As far as I can tell, there's no way
+to get both the text of the output and have curl return non-zero.
