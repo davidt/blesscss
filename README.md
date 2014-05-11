@@ -1,5 +1,7 @@
 # blesscss
 
+**NOTE**: This is pretty dead.
+
 blesscss is a very simple web service to compile [LessCSS](http://lesscss.org)
 files into CSS. It exposes two URLs, at `/` and `/min/`, for normal and
 minimized output, respectively. On success, the result will be a 200 success
